@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Meme Generator</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#e3f2fd;
+}
+
+.container{
+    width:550px;
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#1565c0;
+    margin-bottom:20px;
+}
+
+.meme{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+.meme img{
+    width:100%;
+    display:block;
+}
+
+.caption{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    text-align:center;
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    text-transform:uppercase;
+    text-shadow:
+        -2px -2px 0 black,
+         2px -2px 0 black,
+        -2px  2px 0 black,
+         2px  2px 0 black;
+}
+
+.top{
+    top:15px;
+}
+
+.bottom{
+    bottom:15px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 28px;
+    border:none;
+    border-radius:8px;
+    background:#2e7d32;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1b5e20;
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>😂 Daily Meme Generator</h1>
+
+    <div class="meme">
+        <img id="memeImage"
+        src="https://i.imgflip.com/1ur9b0.jpg"
+        alt="Meme">
+
+        <div class="caption top" id="topText">
+            WHEN THE TEACHER SAYS
+        </div>
+
+        <div class="caption bottom" id="bottomText">
+            SUBMIT TODAY
+        </div>
+    </div>
+
+    <button onclick="changeMeme()">🎲 Next Meme</button>
+
+</div>
+
+<script>
+
+const memes = [
+
+{
+img:"https://i.imgflip.com/1ur9b0.jpg",
+top:"WHEN THE TEACHER SAYS",
+bottom:"SUBMIT TODAY"
+},
+
+{
+img:"https://i.imgflip.com/9ehk.jpg",
+top:"ME BEFORE THE EXAM",
+bottom:"I KNOW EVERYTHING"
+},
+
+{
+img:"https://i.imgflip.com/9ehk.jpg",
+top:"ME DURING THE EXAM",
+bottom:"WHAT IS MY NAME?"
+},
+
+{
+img:"https://i.imgflip.com/30b1gx.jpg",
+top:"WHEN THE BUG",
+bottom:"FIXES ITSELF"
+},
+
+{
+img:"https://i.imgflip.com/26am.jpg",
+top:"AFTER ONE HOUR",
+bottom:"STILL DEBUGGING"
+},
+
+{
+img:"https://i.imgflip.com/3si4.jpg",
+top:"WHEN THE WIFI",
+bottom:"STOPS DURING GAMING"
+},
+
+{
+img:"https://i.imgflip.com/4t0m5.jpg",
+top:"FRIDAY NIGHT",
+bottom:"FINALLY WEEKEND!"
+},
+
+{
+img:"https://i.imgflip.com/1bij.jpg",
+top:"OPENED YOUTUBE",
+bottom:"FOR A 5 MINUTE BREAK"
+}
+
+];
+
+function changeMeme(){
+
+    const randomIndex = Math.floor(Math.random() * memes.length);
+
+    document.getElementById("memeImage").src = memes[randomIndex].img;
+
+    document.getElementById("topText").textContent = memes[randomIndex].top;
+
+    document.getElementById("bottomText").textContent = memes[randomIndex].bottom;
+}
+
+</script>
+
+</body>
+</html>
