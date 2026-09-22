@@ -1,28 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-
-function Home() {
-  const [count, setCount] = useState(0)
-
+export default function Home() {
   return (
-    <main className="counter-page">
-      <section className="counter-card" aria-labelledby="counter-title">
-        <h1 id="counter-title">Counter</h1>
-        <p className="count-value" aria-live="polite">{count}</p>
-        <div className="counter-actions">
-          <button
-            type="button"
-            onClick={() => setCount((value) => Math.max(0, value - 1))}
-          >
-            −
-          </button>
-          <button type="button" onClick={() => setCount((value) => value + 1)}>
-            +
-          </button>
-        </div>
+    <main className="home-page">
+      <section className="home-hero">
+        <p className="page-label">Online Store</p>
+        <h1>Ideas made<br />clear and useful.</h1>
+        <p className="hero-copy">A small React app demonstrating navigation between distinct pages and data from an API.</p>
       </section>
     </main>
   )
 }
-
-export default Home
